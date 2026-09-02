@@ -1,0 +1,66 @@
+
+import java.util.Arrays;
+
+class StringAssignments {
+
+    public static void countVowel(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            switch (str.charAt(i)) {
+                case 'a' ->
+                    count++;
+                case 'e' ->
+                    count++;
+                case 'i' ->
+                    count++;
+                case 'o' ->
+                    count++;
+                case 'u' ->
+                    count++;
+                default -> {
+                }
+            }
+        }
+        System.out.println("vowels count = " + count);
+    }
+
+    public static void checkAnagram(String str1, String str2) {
+        // convert strings to lowercase
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+
+        // 1st check if length is the same
+        if (str1.length() == str2.length()) {
+            //convert string into char arrays
+            char str1charArray[] = str1.toCharArray();
+            char str2charArray[] = str2.toCharArray();
+
+            // sort the array
+            Arrays.sort(str1charArray);
+            Arrays.sort(str2charArray);
+
+            // if the sorted array are same or identical then the string are anagram
+            if (Arrays.equals(str1charArray, str2charArray)) {
+                System.out.println(str1 + " and " + str2 + " are anagrams");
+            } else {
+                System.out.println(str1 + " and " + str2 + " are not anagrams");
+            }
+        } else {
+            // case when length are not equal
+            System.out.println(str1 + " and " + str2 + " are not anagrams");
+        }
+    }
+
+    public static void main(String[] args) {
+        countVowel("aaaaaeiouuuuu");
+
+        String str = "MahipalSingh";
+        String str1 = "SyntaxSingh";
+        String str2 = "MahipalSingh";
+        System.out.println(str.equals(str1) + " " + str.equals(str2)); // false true
+        String str3 = "mahipal".replace('a', ' ');
+        System.out.println(str3);
+        
+        checkAnagram("cares", "race0");
+    }
+}
